@@ -56,6 +56,8 @@ class UI {
         document.querySelector('#noteid').value = (Store.getLastNote()==undefined)? 1: Store.getLastNote().id+1;
     }
 
+   
+
     
 
 }
@@ -150,4 +152,15 @@ document.querySelector('#note-list').addEventListener('click', e => {
     }
         
       
+})
+
+
+// choose color
+document.querySelector('.swatches').addEventListener('click', e => {
+    if(e.target.classList.contains('swatch')) {
+        let i = e.target.parentElement.children.length;
+        while(i--) e.target.parentElement.children[i].classList.remove('active');
+        e.target.classList.add('active');
+    }
+    
 })
