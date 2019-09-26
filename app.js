@@ -57,6 +57,12 @@ class UI {
         document.querySelector('#noteid').value = (Store.getLastNote()==undefined)? 1: Store.getLastNote().id+1;
     }
 
+    static removeColorPicker() {
+        let swatches = document.querySelector('.swatches').children;
+        let i = swatches.length;
+        while(i--) swatches[i].classList.remove('active');
+    }
+
    
 
     
@@ -148,10 +154,13 @@ document.querySelector('#note-list').addEventListener('click', e => {
     }
     if(e.target.classList.contains('fa-pencil-alt')) {
         // update the form with selected note
-        
         document.querySelector('#title').value = e.target.parentElement.firstElementChild.innerText.trim();
         document.querySelector('#content').value = e.target.parentElement.parentElement.querySelector('.card-body').innerText.trim();
         document.querySelector('#noteid').value = e.target.getAttribute('noteid');
+        // switch selected color in form
+        UI.removeColorPicker();
+        document.querySelector('.'+e.target.parentElement.parentElement.querySelector('.card-body').classList[1]).classList.add('active');
+        
     }
         
       
@@ -161,8 +170,7 @@ document.querySelector('#note-list').addEventListener('click', e => {
 // choose color
 document.querySelector('.swatches').addEventListener('click', e => {
     if(e.target.classList.contains('swatch')) {
-        let i = e.target.parentElement.children.length;
-        while(i--) e.target.parentElement.children[i].classList.remove('active');
+        UI.removeColorPicker();
         e.target.classList.add('active');
     }
     
