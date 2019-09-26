@@ -51,6 +51,7 @@ class UI {
         document.querySelector('#title').value = '';
         document.querySelector('#content').value = '';
         UI.updateId();
+        UI.returnColorPicker();
     }
 
     static updateId() {
@@ -63,7 +64,10 @@ class UI {
         while(i--) swatches[i].classList.remove('active');
     }
 
-   
+    static returnColorPicker() {
+        UI.removeColorPicker();
+        document.querySelector('.swatch', 0).classList.add('active');
+    }
 
     
 
