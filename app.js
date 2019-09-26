@@ -29,7 +29,7 @@ class UI {
                 <i class="fas fa-trash" noteid="${note.id}"></i>
                 <i class="fas fa-pencil-alt mr-3" noteid="${note.id}"></i>
             </div>
-            <div class="card-body ${note.color}">
+            <div class="card-body ${note.color} ${note.color=='bg-white'?'text-dark':''}">
                 <p class="card-text">${note.content}</p>
             </div>
         `;
