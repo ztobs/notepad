@@ -1,9 +1,10 @@
 // note class
 class Note {
-    constructor(id, title, content) {
+    constructor(id, title, content, color) {
         this.title = title,
-        this.content = content
-        this.id = id
+        this.content = content,
+        this.id = id,
+        this.color = color
     }
 }
 
@@ -116,6 +117,8 @@ document.querySelector('#note-form').addEventListener('submit', e => {
     const title = document.querySelector('#title').value;
     const content = document.querySelector('#content').value;
     const id = parseInt(document.querySelector('#noteid').value);
+    const color = document.querySelector('.swatches').querySelector('.active').classList[0];
+    
 
     // validate
     if(title == '' || content == '') {
@@ -123,7 +126,7 @@ document.querySelector('#note-form').addEventListener('submit', e => {
     }
     else {
         // Instantiate note
-        const note = new Note(id, title, content);
+        const note = new Note(id, title, content, color);
         
         // Add Note
         UI.addNoteToList(note); 
