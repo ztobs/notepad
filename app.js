@@ -25,7 +25,7 @@ class UI {
 
         card.innerHTML = `
             <div class="card-header">
-                <span>${note.title}</span>
+                <h4>${note.title}</h4>
                 <i class="fas fa-trash" noteid="${note.id}"></i>
                 <i class="fas fa-pencil-alt mr-3" noteid="${note.id}"></i>
             </div>
